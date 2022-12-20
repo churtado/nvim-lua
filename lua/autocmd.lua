@@ -8,6 +8,21 @@ api.nvim_create_autocmd("BufWritePre", {
 	group = TrimWhiteSpaceGrp,
 })
 
+-- TODO: how to format better?
+--- Format after save
+local FormatAfterSave = api.nvim_create_augroup("FormatAfterSave", { clear = true })
+api.nvim_create_autocmd("BufWritePost", {
+	command = ":FormatWrite",
+	group = FormatAfterSave,
+})
+
+--- Format before save
+local FormatBeforeSave = api.nvim_create_augroup("FormatBeforeSave", { clear = true })
+api.nvim_create_autocmd("BufWritePre", {
+	command = ":FormatWrite",
+	group = FormatBeforeSave,
+})
+
 -- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
