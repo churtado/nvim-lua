@@ -59,6 +59,7 @@ wk.register({
 -- Register leader based mappings
 wk.register({
 	["<tab>"] = { "<cmd>e#<cr>", "Prev buffer" },
+	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	b = {
 		name = "Buffers",
 		b = {
@@ -104,3 +105,8 @@ wk.register({
 	},
 	z = { "Spelling" },
 }, { prefix = "<leader>", mode = "n", default_options })
+
+-- register visual mode leader-based mappings
+wk.register({
+	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
+}, { prefix = "<leader>", mode = "v", default_options })
