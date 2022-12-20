@@ -179,6 +179,8 @@ packer.startup(function(use)
     config = get_config("git.gitsigns"),
   })
 
+  use({ "camspiers/animate.vim" })
+
   use({ "tpope/vim-fugitive" }) -- yeah this is not lua but one of the best Vim plugins ever
   -- }}} Git
 
@@ -206,8 +208,7 @@ packer.startup(function(use)
     "numToStr/Comment.nvim",
     event = "BufRead",
     config = function()
-      require("Comment").setup({
-      })
+      require("Comment").setup({})
     end,
   })
 
