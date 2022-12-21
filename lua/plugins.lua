@@ -273,11 +273,7 @@ packer.startup(function(use)
 
   use({
     "nvim-lualine/lualine.nvim",
-    config = function()
-      require("lualine").setup({
-        options = { theme = "gruvbox-material" },
-      })
-    end,
+    config = get_config("ui.lualine"),
   })
 
   use({ "ahmedkhalf/project.nvim", config = get_config("ui.project") })
