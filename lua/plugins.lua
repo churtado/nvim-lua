@@ -274,7 +274,9 @@ packer.startup(function(use)
   use({
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("lvim.core.lualine").setup()
+      require("lualine").setup({
+        options = { theme = "gruvbox-material" },
+      })
     end,
   })
 
@@ -287,8 +289,6 @@ packer.startup(function(use)
       "nvim-tree/nvim-web-devicons", -- optional, for file icons
     },
   })
-
-  use({ "camspiers/animate.vim" })
 
   use({ "camspiers/lens.vim" })
 
