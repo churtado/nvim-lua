@@ -101,8 +101,6 @@ packer.startup(function(use)
 
   use({ "rhysd/vim-grammarous", ft = { "markdown", "latex" }, config = get_config("coding.grammarous") })
 
-  use({ "ray-x/go.nvim", requires = "ray-x/guihua.lua", config = get_config("coding.go"), ft = { "go" } })
-
   use({ "LudoPinelli/comment-box.nvim", cmd = "CB*", config = get_config("coding.comment-box") })
 
   use({ "echasnovski/mini.nvim", branch = "main", config = get_config("coding.mini") })
@@ -271,6 +269,13 @@ packer.startup(function(use)
   use({
     "akinsho/nvim-toggleterm.lua",
     config = get_config("ui.toggleterm"),
+  })
+
+  use({
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("lvim.core.lualine").setup()
+    end,
   })
 
   use({ "ahmedkhalf/project.nvim", config = get_config("ui.project") })
