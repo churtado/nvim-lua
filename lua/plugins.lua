@@ -42,6 +42,10 @@ packer.startup(function(use)
   -- {{{ Coding
   use({ "windwp/nvim-autopairs", config = get_config("coding.nvim-autopairs") })
 
+  use({ "milisims/nvim-luaref" })
+  use({ "folke/lua-dev.nvim" })
+  use({ "rafcamlet/nvim-luapad" })
+
   use({
     "nvim-treesitter/nvim-treesitter",
     config = get_config("coding.treesitter"),
