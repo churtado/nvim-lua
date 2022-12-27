@@ -290,11 +290,6 @@ packer.startup(function(use)
 
   use({ "pechorin/any-jump.vim" })
 
-  use({
-    "mhartington/formatter.nvim",
-    config = get_config("lsp.formatter"),
-  })
-
   use({ "peitalin/vim-jsx-typescript" })
 
   use({

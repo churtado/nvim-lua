@@ -1,28 +1,23 @@
-local nls = require("null-ls")
+local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-nls.setup({
+null_ls.setup({
   sources = {
     debug = true,
-    nls.builtins.code_actions.gitsigns,
-    nls.builtins.code_actions.shellcheck,
-    nls.builtins.diagnostics.eslint_d,
-    nls.builtins.diagnostics.vale,
-    nls.builtins.formatting.black,
-    -- nls.builtins.formatting.eslint_d,
-    -- nls.builtins.formatting.eslint_d.with({
-    --   command = "eslint_d",
-    --   extra_args = { "--fix-to-stdout", "--stdin", "stdin-filename", "$FILENAME" },
-    --   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    -- }),
-    -- nls.builtins.formatting.latexindent.with({
-    --   extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
-    -- }),
-    -- nls.builtins.formatting.prettier.with({
-    -- 	extra_args = { "--single-quote", "true" },
-    -- }),
-    nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
-    -- nls.builtins.formatting.terraform_fmt,
+    null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.diagnostics.vale,
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.eslint_d,
+    null_ls.builtins.formatting.prettier.with({
+      extra_args = {
+        "--use-tabs=true",
+        "--trailingComma=none",
+        "--single-quote=true",
+      },
+    }),
+    null_ls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
   },
   on_attach = function(client, bufnr)
     local wk = require("which-key")
