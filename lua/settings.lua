@@ -60,6 +60,7 @@ M.treesitter_ensure_installed = {
   "query",
   "python",
   "regex",
+  "rust",
   "toml",
   "vim",
   "yaml",
