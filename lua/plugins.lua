@@ -44,7 +44,6 @@ packer.startup(function(use)
 
   use({ "milisims/nvim-luaref" })
   use({ "folke/lua-dev.nvim" })
-  use({ "rafcamlet/nvim-luapad" })
 
   use({
     "nvim-treesitter/nvim-treesitter",
