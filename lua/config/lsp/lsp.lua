@@ -19,6 +19,7 @@ local servers = {
   "pyright",
   "rust_analyzer",
   "sumneko_lua",
+  "solargraph",
   "terraformls",
   "texlab",
   "tsserver",

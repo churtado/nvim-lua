@@ -7,20 +7,20 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   sources = {
     debug = true,
-    null_ls.builtins.code_actions.gitsigns,
-    null_ls.builtins.code_actions.shellcheck,
+    -- null_ls.builtins.code_actions.gitsigns,
+    -- null_ls.builtins.code_actions.shellcheck,
     null_ls.builtins.diagnostics.eslint_d,
-    null_ls.builtins.diagnostics.vale,
-    null_ls.builtins.formatting.black,
+    -- null_ls.builtins.diagnostics.vale,
+    -- null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.formatting.prettier.with({
+    null_ls.builtins.formatting.prettierd.with({
       extra_args = {
         "--use-tabs=true",
         "--trailingComma=none",
         "--single-quote=true",
       },
     }),
-    -- NOTE:can't get it to work yet
+    null_ls.builtins.formatting.rubocop,
     null_ls.builtins.formatting.rustfmt.with({
       extra_args = {
         "--edition=2021",
