@@ -20,6 +20,12 @@ null_ls.setup({
         "--single-quote=true",
       },
     }),
+    -- NOTE:can't get it to work yet
+    null_ls.builtins.formatting.rustfmt.with({
+      extra_args = {
+        "--edition=2021",
+      },
+    }),
     null_ls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
   },
   on_attach = function(client, bufnr)
