@@ -125,6 +125,16 @@ packer.startup(function(use)
   })
 
   use({
+    "phaazon/hop.nvim",
+    event = "BufRead",
+    config = function()
+      require("hop").setup()
+      vim.api.nvim_set_keymap("n", "S", ":HopChar2<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "s", ":HopWord<cr>", { silent = true })
+    end,
+  })
+
+  use({
     "aarondiel/spread.nvim",
     after = "nvim-treesitter",
     config = get_config("coding.spread"),
@@ -276,6 +286,7 @@ packer.startup(function(use)
 
   use({
     "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = get_config("ui.lualine"),
   })
 

@@ -24,12 +24,12 @@ o.mouse = settings.mouse
 o.showmode = false -- we don't need to see things like -- INSERT -- anymore
 o.showtabline = settings.showtabline
 if not settings.disable_winbar then
-	o.winbar = "%{%v:lua.require'winbar'.get_winbar()%}"
+  o.winbar = "%{%v:lua.require'winbar'.get_winbar()%}"
 end
 if settings.global_statusline then
-	o.laststatus = 3
+  o.laststatus = 3
 else
-	o.laststatus = 2
+  o.laststatus = 2
 end
 o.smartcase = true -- smart case
 o.smartindent = true -- make indenting smarter again
@@ -38,6 +38,7 @@ o.splitright = true -- force all vertical splits to go to the right of current w
 o.expandtab = true -- convert tabs to spaces
 o.shiftwidth = 2 -- the number of spaces inserted for each indentation
 o.tabstop = 2 -- how many columns a tab counts for
+o.expandtab = false
 o.termguicolors = true -- set term gui colors (most terminals support this)
 o.cursorline = true -- highlight the current line
 o.scrolloff = 3 -- Minimal number of screen lines to keep above and below the cursor
@@ -51,13 +52,13 @@ o.foldlevelstart = 99 -- Using ufo provider need a large value, feel free to dec
 -- o.listchars = settings.listchars
 o.list = true
 -- M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
-o.listchars:append "eol:¬"
-o.listchars:append "space:·"
-o.listchars:append "tab:>-"
+o.listchars:append("eol:¬")
+o.listchars:append("space:·")
+o.listchars:append("tab:>-")
 o.shortmess = o.shortmess + "c" -- prevent "pattern not found" messages
 o.wildmode = "full"
 if utils.isNotEmpty(settings.grepprg) then
-	o.grepprg = settings.grepprg
+  o.grepprg = settings.grepprg
 end
 o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion
 o.wildignorecase = true -- When set case is ignored when completing file names and directories

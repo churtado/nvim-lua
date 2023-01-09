@@ -48,15 +48,15 @@ local wk = require("which-key")
 
 -- register non leader based mappings
 wk.register({
-  sa = "Add surrounding",
-  sd = "Delete surrounding",
-  sh = "Highlight surrounding",
-  sn = "Surround update n lines",
-  sr = "Replace surrounding",
-  sF = "Find left surrounding",
-  sf = "Replace right surrounding",
-  ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
-  st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
+  -- sa = "Add surrounding",
+  -- sd = "Delete surrounding",
+  -- sh = "Highlight surrounding",
+  -- sn = "Surround update n lines",
+  -- sr = "Replace surrounding",
+  -- sF = "Find left surrounding",
+  -- sf = "Replace right surrounding",
+  -- ss = { "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", "Jump to character" },
+  -- st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
 })
 
 -- Register leader based mappings

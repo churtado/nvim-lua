@@ -1,31 +1,31 @@
--- known issues with eslint:
---     'plugin:prettier/recommended' -> comment this out
-
 local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
   sources = {
     debug = true,
-    -- null_ls.builtins.code_actions.gitsigns,
-    -- null_ls.builtins.code_actions.shellcheck,
-    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.eslint_d,
     -- null_ls.builtins.diagnostics.vale,
     -- null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.eslint_d,
-    null_ls.builtins.formatting.prettierd.with({
+    -- null_ls.builtins.formatting.prettier,
+    -- null_ls.builtins.formatting.prettierd.with({
+    --   extra_args = {
+    --     "--use-tabs=true",
+    --     "--trailingComma=none",
+    --     "--single-quote=true",
+    --   },
+    -- }),
+    -- NOTE: it works but the buffer doesn't refresh. Use :e after saving
+    null_ls.builtins.formatting.rubocop.with({
+      command = "rubocop",
       extra_args = {
-        "--use-tabs=true",
-        "--trailingComma=none",
-        "--single-quote=true",
+        "--auto-correct",
       },
     }),
-    null_ls.builtins.formatting.rubocop,
-    null_ls.builtins.formatting.rustfmt.with({
-      extra_args = {
-        "--edition=2021",
-      },
-    }),
+    null_ls.builtins.formatting.rustfmt.with({}),
     null_ls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
   },
   on_attach = function(client, bufnr)
@@ -42,9 +42,9 @@ null_ls.setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          -- if AUTOFORMAT_ACTIVE then -- global var defined in functions.lua
-          vim.lsp.buf.format({ bufnr = bufnr })
-          -- end
+          if AUTOFORMAT_ACTIVE then -- global var defined in functions.lua
+            vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
+          end
         end,
       })
     end
